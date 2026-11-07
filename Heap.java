@@ -3,8 +3,8 @@ package aed.tp2;
 import java.util.Comparator;
 
 
-public class Heap<T extends Comparable<T>> {
-    private T[] elems;
+public class Heap<T extends > {
+    private ArrayList elems;  
     private HandleDeHeap<T>[] handles;
     private int cant;
     private static final int tamaño_inicial = 16;
@@ -79,7 +79,7 @@ public class Heap<T extends Comparable<T>> {
         this.elems[j] = guardavalor;
 
 
-        HandleDeHeap<T> guardaHandle = this.handles[i]; /*al intercambiar de posicion, tambien se tiene que intercambiar de posicion los punteros de los handles en el array* */
+        HandleDeHeap<T> guardaHandle = this.handles[i]; /*al intercambiar de posicion, tambien se tiene que intercambiar de posicion los punteros de los handles en el array de handles* */
         this.handles[i] = this.handles[j];
         this.handles[j] = guardaHandle;
 
