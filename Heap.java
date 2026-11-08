@@ -47,17 +47,14 @@ public class Heap<T extends Comparable<T>> {
     }
 
     /* saca al usuario , guarda la direccion donde estaba en el heap */
-    public Handle<T> desencolarHandle() {
-        if (estaVacio())
-            return null;
-        Handle<T> handleMaximo = this.arr.get(0); /*
-                                                   * guarda/copia la direccion que apunta al handle asociado al usuario
-                                                   * que ocupa la raiz del heap en este momento, antes que remueva la
-                                                   * raiz y reordene el heap
-                                                   */
-        eliminarEnHeap(0);
-        return handleMaximo;
-    }
+        public Handle<T> desencolarHandle() {
+            if (estaVacio())
+                return null;
+            Handle<T> handleMaximo = this.arr.get(0); /*handlemaximo guarda la direccion al handledeheap de la posicion 0 */
+                                                    
+            eliminarEnHeap(0);/* el heap saca la referencia al handleheap 0 de su arraylist y reacomoda */
+            return handleMaximo; //*al guardar  en la variable handleMaximo aunque no exista en el heap, la devuelve */
+        }
 
     /* borra el elemento que esta en la posicion i */
     public void eliminarEnHeap(int i) {
@@ -143,8 +140,7 @@ public class Heap<T extends Comparable<T>> {
     }
 
     /*
-     * ========================CLASE
-     * HANDLEDEHEAP===============================================
+     * ==========Clase HandleDeHeap==========================
      */
 
     private class HandleDeHeap implements Handle<T> {
